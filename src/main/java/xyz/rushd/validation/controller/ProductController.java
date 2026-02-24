@@ -21,13 +21,13 @@ public class ProductController {
     this.productService = productService;
   }
 
-  @PostMapping
+  @PostMapping("/add-product")
   public ResponseEntity<Product> addProduct(@Valid @RequestBody Product product) {
     Product saved =  productService.addProduct(product);
     return ResponseEntity.status(HttpStatus.CREATED).body(saved);
   }
 
-  @GetMapping
+  @GetMapping("/all-products")
   public ResponseEntity<List<Product>> getAllProducts() {
     return ResponseEntity.ok(productService.getAllProducts());
   }
